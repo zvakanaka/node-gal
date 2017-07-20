@@ -1,0 +1,32 @@
+{
+  "name": "node-gal",
+  "version": "1.0.0",
+  "description": "photo gallery api",
+  "main": "api.js",
+  "dependencies": {
+    "restify": "^5.0.1",
+    "restify-plugins": "^1.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zvakanaka/node-gal.git"
+  },
+  "keywords": [
+    "photo",
+    "picture",
+    "gallery",
+    "gal",
+    "server",
+    "api"
+  ],
+  "author": "adam quinton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zvakanaka/node-gal/issues"
+  },
+  "homepage": "https://github.com/zvakanaka/node-gal#readme"
+}
