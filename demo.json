@@ -1,7 +1,5 @@
 {
-  "Stars": ["flickerURL.jpg", "na.dpg", "leka_one.png"],
-  "California": ["flickerURL.jpg", "another.jpg", "na.dpg"],
-  "Not For Real": ["file:///home/adam/git/photo/Easter/IMG_0681.jpg"],
-  "For Real": ["file:///home/chronos/user/Downloads/IMG_0739.JPG"]
+  "Stars": ["https://farm9.staticflickr.com/8890/28581277801_04e87ca297_z_d.jpg", "https://farm8.staticflickr.com/7284/28179343165_ceb3e46c59_z_d.jpg", "https://farm8.staticflickr.com/7458/27754747935_5270dd8c1b_z_d.jpg"],
+  "Big Springs": ["https://farm8.staticflickr.com/7035/27091490591_5f42e60f81_z_d.jpg"]
 }
 
