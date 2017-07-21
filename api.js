@@ -2,7 +2,7 @@ const restify = require('restify');
 const plugins = require('restify-plugins');
 const photoFS = require('./filesystem');
 
-const DIR_WITH_ALBUMS = process.env.DIR_WITH_ALBUMS || '/Users/adam/git/photo' || '.';
+const DIR_WITH_ALBUMS = process.env.DIR_WITH_ALBUMS || '../photo' || '.';
 const IMAGE_EXTS = process.env.IMAGE_EXTS || ['jpg', 'png', 'gif'];
 const VIDEO_EXTS = process.env.VIDEO_EXTS || ['webm', 'mov', 'avi', 'mp4'];
 
