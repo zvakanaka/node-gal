@@ -1,5 +1,35 @@
-{
-  "Stars": ["https://farm9.staticflickr.com/8890/28581277801_04e87ca297_z_d.jpg", "https://farm8.staticflickr.com/7284/28179343165_ceb3e46c59_z_d.jpg", "https://farm8.staticflickr.com/7458/27754747935_5270dd8c1b_z_d.jpg"],
-  "Big Springs": ["https://farm8.staticflickr.com/7035/27091490591_5f42e60f81_z_d.jpg"]
+{"albums":[
+  {
+    "name": "Stars",
+    "thumbnailIndex": "1",
+    "images": [
+      {
+        "small": "https://farm9.staticflickr.com/8483/29843026326_a86803641f_m_d.jpg",
+        "medium": "https://farm9.staticflickr.com/8483/29843026326_a86803641f_z_d.jpg",
+        "large": "https://farm9.staticflickr.com/8483/29843026326_0487e47ce6_k_d.jpg"
+      },
+      {
+        "small": "https://farm9.staticflickr.com/8890/28581277801_04e87ca297_m_d.jpg",
+        "medium": "https://farm9.staticflickr.com/8890/28581277801_04e87ca297_z_d.jpg",
+        "large": "https://farm9.staticflickr.com/8890/28581277801_21478789a1_k_d.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Big Springs",
+    "thumbnailIndex": "0",
+    "images": [
+    {
+      "small": "https://farm8.staticflickr.com/7396/26555327693_ae40458843_m_d.jpg",
+      "medium": "https://farm8.staticflickr.com/7396/26555327693_ae40458843_z_d.jpg",
+      "large": "https://farm8.staticflickr.com/7396/26555327693_62c03f0b87_h_d.jpg"
+    },
+    {
+      "small": "https://farm8.staticflickr.com/7035/27091490591_5f42e60f81_m_d.jpg",
+      "medium": "https://farm8.staticflickr.com/7035/27091490591_5f42e60f81_z_d.jpg",
+      "large": "https://farm8.staticflickr.com/7035/27091490591_abca284801_h_d.jpg"
+    }
+  ]
 }
-
+]
+}

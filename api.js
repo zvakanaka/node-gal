@@ -1,11 +1,6 @@
 const restify = require('restify');
 const plugins = require('restify-plugins');
-const photoFS = require('./filesystem');
-
-const DIR_WITH_ALBUMS = process.env.DIR_WITH_ALBUMS || '../photo' || '.';
-const IMAGE_EXTS = process.env.IMAGE_EXTS || ['jpg', 'png', 'gif'];
-const VIDEO_EXTS = process.env.VIDEO_EXTS || ['webm', 'mov', 'avi', 'mp4'];
-
+const photoFS = require('./model');
 const server = restify.createServer({
   name: 'node-gal-api',
   version: '1.0.0'
@@ -21,30 +16,33 @@ server.use(
   }
 );
 
-server.get('/images/:album', function (req, res, next) {
+server.get('/album/:album', function (req, res, next) {
   res.setHeader('Content-Type', 'application/json');
-  let images = photoFS.getFilesInDirectory(DIR_WITH_ALBUMS, req.params.album, IMAGE_EXTS);
-  res.json(images);
+  let album = photoFS.getAlbumByName(req.params.album);
+  res.json(album);
   return next();
 });
 
-server.get('/videos/:album', function (req, res, next) {
+server.get('/albums/names', function (req, res, next) {
   res.setHeader('Content-Type', 'application/json');
-  let images = photoFS.getFilesInDirectory(DIR_WITH_ALBUMS, req.params.album, VIDEO_EXTS);
-  res.json(images);
+  let albumNames = photoFS.getAlbumNames();
+  res.json(albumNames);
   return next();
 });
 
-server.get('/directories', function (req, res, next) {
+server.get('/albums/details', function (req, res, next) {
   res.setHeader('Content-Type', 'application/json');
-  let dirs = photoFS.getDirectoriesInDirectory(DIR_WITH_ALBUMS);
-  res.json(dirs);
+  let albumNamesAndThumbs = photoFS.getAlbumNamesAndThumbs();
+  res.json(albumNamesAndThumbs);
   return next();
 });
 
-server.get(/\/photo\/?.*/, restify.plugins.serveStatic({
-  directory: DIR_WITH_ALBUMS.substr(0, DIR_WITH_ALBUMS.indexOf('photo'))
-}));
+server.get('/albums/all', function (req, res, next) {
+  res.setHeader('Content-Type', 'application/json');
+  let albums = photoFS.getAllAlbums();
+  res.json(albums);
+  return next();
+});
 
 server.listen(process.env.PORT || 8888, function () {
   console.log('%s listening at %s', server.name, server.url);
