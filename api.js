@@ -1,6 +1,7 @@
 const restify = require('restify');
 const plugins = require('restify-plugins');
 const photoFS = require('./model');
+const DIR_WITH_ALBUMS = process.env.DIR_WITH_ALBUMS || '../photo';
 const server = restify.createServer({
   name: 'node-gal-api',
   version: '1.0.0'
@@ -50,6 +51,10 @@ server.get('/image/:album/:image', function (req, res, next) {
   res.json(album);
   return next();
 });
+console.log('serving static:', DIR_WITH_ALBUMS.substr(0, DIR_WITH_ALBUMS.indexOf('photo')));
+server.get(/\/photo\/?.*/, restify.plugins.serveStatic({
+  directory: DIR_WITH_ALBUMS.substr(0, DIR_WITH_ALBUMS.indexOf('photo'))
+}));
 
 server.listen(process.env.PORT || 8888, function () {
   console.log('%s listening at %s', server.name, server.url);

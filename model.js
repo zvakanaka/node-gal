@@ -34,10 +34,9 @@ function getAlbumByName(name='', fileExtensions=['jpg']) {
   let images = originals
     .map(file => {
       return {
-        url: ``,
-        small: smalls.filter(item => item === file),
-        medium: mediums.filter(item => item === file),
-        large: larges.filter(item => item === file)
+        small: `${URL}/${name}/${smalls.filter(item => item === file)}`,
+        medium: `${URL}/${name}/${mediums.filter(item => item === file)}`,
+        large: `${URL}/${name}/${larges.filter(item => item === file)}`
       };
     });
   let thumbnailIndex = 0;//TODO: get a set thumbnail
@@ -57,7 +56,6 @@ function getAlbumNamesAndThumbs() {
   return getAllAlbums()
       .map(album => {
         return {
-          url: ``;
           thumbSmall: album.images[album.thumbnailIndex].small,
           thumbMedium: album.images[album.thumbnailIndex].medium,
           thumbLarge: album.images[album.thumbnailIndex].large,
