@@ -44,6 +44,13 @@ server.get('/albums/all', function (req, res, next) {
   return next();
 });
 
+server.get('/image/:album/:image', function (req, res, next) {
+  res.setHeader('Content-Type', 'application/json');
+  let album = photoFS.getAlbumByName(req.params.album);
+  res.json(album);
+  return next();
+});
+
 server.listen(process.env.PORT || 8888, function () {
   console.log('%s listening at %s', server.name, server.url);
 });
