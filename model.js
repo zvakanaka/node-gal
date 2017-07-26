@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const BASE_DIR = process.env.BASE_DIR || '../photo';
-const URL = process.env.URL || `localhost:8888/photo`;
+const URL = process.env.URL || `http://localhost:8888/photo`;
 const DEMO = require('./demo.json');
 
 /* helpers */
@@ -34,9 +34,9 @@ function getAlbumByName(name='', fileExtensions=['jpg']) {
   let images = originals
     .map(file => {
       return {
-        small: `${URL}/${name}/${smalls.filter(item => item === file)}`,
-        medium: `${URL}/${name}/${mediums.filter(item => item === file)}`,
-        large: `${URL}/${name}/${larges.filter(item => item === file)}`
+        small: smalls.length > 0 ? `${URL}/${name}/.thumb/${smalls.filter(item => item === file)}` : `${URL}/${name}/${file}`,
+        medium: mediums.length > 0 ? `${URL}/${name}/.web/${mediums.filter(item => item === file)}` : `${URL}/${name}/${file}`,
+        large: larges.length > 0 ? `${URL}/${name}/.web/${larges.filter(item => item === file)}` : `${URL}/${name}/${file}`
       };
     });
   let thumbnailIndex = 0;//TODO: get a set thumbnail
