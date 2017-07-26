@@ -1,6 +1,7 @@
 const restify = require('restify');
 const plugins = require('restify-plugins');
-const photoFS = require('./model');
+const photoModel = require('./model');
+// const photoModel = require('./demo');
 const DIR_WITH_ALBUMS = process.env.DIR_WITH_ALBUMS || '../photo' || '.';
 const server = restify.createServer({
   name: 'node-gal-api',
@@ -19,35 +20,35 @@ server.use(
 
 server.get('/album/:album', function (req, res, next) {
   res.setHeader('Content-Type', 'application/json');
-  let album = photoFS.getAlbumByName(req.params.album);
+  let album = photoModel.getAlbumByName(req.params.album);
   res.json(album);
   return next();
 });
 
 server.get('/albums/names', function (req, res, next) {
   res.setHeader('Content-Type', 'application/json');
-  let albumNames = photoFS.getAlbumNames();
+  let albumNames = photoModel.getAlbumNames();
   res.json(albumNames);
   return next();
 });
 
 server.get('/albums/details', function (req, res, next) {
   res.setHeader('Content-Type', 'application/json');
-  let albumNamesAndThumbs = photoFS.getAlbumNamesAndThumbs();
+  let albumNamesAndThumbs = photoModel.getAlbumNamesAndThumbs();
   res.json(albumNamesAndThumbs);
   return next();
 });
 
 server.get('/albums/all', function (req, res, next) {
   res.setHeader('Content-Type', 'application/json');
-  let albums = photoFS.getAllAlbums();
+  let albums = photoModel.getAllAlbums();
   res.json(albums);
   return next();
 });
 
 server.get('/image/:album/:image', function (req, res, next) {
   res.setHeader('Content-Type', 'application/json');
-  let album = photoFS.getAlbumByName(req.params.album);
+  let album = photoModel.getAlbumByName(req.params.album);
   res.json(album);
   return next();
 });

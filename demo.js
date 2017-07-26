@@ -1,3 +1,4 @@
+const URL = process.env.URL || ``;
 const DEMO = require('./demo.json');
 
 function getAlbumByName(name='') {

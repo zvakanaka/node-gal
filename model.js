@@ -2,7 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const BASE_DIR = process.env.BASE_DIR || '../photo';
 const URL = process.env.URL || `http://localhost:8888/photo`;
-const DEMO = require('./demo.json');
 
 /* helpers */
 function getDirectoriesInDirectory(base='./', ignore=[]) {
