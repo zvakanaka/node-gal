@@ -1,7 +1,7 @@
 const restify = require('restify');
 const plugins = require('restify-plugins');
-const photoModel = require('./model');
-// const photoModel = require('./demo');
+//const photoModel = require('./model');
+const photoModel = require('./demo');
 const DIR_WITH_ALBUMS = process.env.DIR_WITH_ALBUMS || '../photo' || '.';
 const server = restify.createServer({
   name: 'node-gal-api',
