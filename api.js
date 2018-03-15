@@ -1,13 +1,15 @@
 const restify = require('restify');
 const plugins = require('restify-plugins');
 require('dotenv').config();
-//const photoModel = require('./model');
-const photoModel = require('./demo');
-const DIR_WITH_ALBUMS = process.env.DIR_WITH_ALBUMS || '../photo' || '.';
+const logger = require('morgan');
+const photoModel = require('./model');
+//const photoModel = require('./demo');
+const BASE_DIR = process.env.BASE_DIR || '../photo' || '.';
 const server = restify.createServer({
   name: 'node-gal-api',
   version: '1.0.0'
 });
+server.use(logger('dev'));
 server.use(plugins.acceptParser(server.acceptable));
 server.use(plugins.queryParser());
 server.use(plugins.bodyParser());
@@ -55,7 +57,7 @@ server.get('/image/:album/:image', function (req, res, next) {
 });
 
 server.get(/\/photo\/?.*/, restify.plugins.serveStatic({
-  directory: DIR_WITH_ALBUMS.substr(0, DIR_WITH_ALBUMS.indexOf('photo'))
+  directory: BASE_DIR.substr(0, BASE_DIR.indexOf('photo'))
 }));
 
 server.listen(process.env.PORT || 8888, function () {

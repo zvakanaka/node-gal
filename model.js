@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config();
 const BASE_DIR = process.env.BASE_DIR || '../photo';
 const URL = process.env.URL || `http://localhost:8888/photo`;
 
@@ -52,15 +53,16 @@ function getAllAlbums() {
 }
 
 function getAlbumNamesAndThumbs() {
+
   return getAllAlbums()
-      .map(album => {
-        return {
-          thumbSmall: album.images[album.thumbnailIndex].small,
-          thumbMedium: album.images[album.thumbnailIndex].medium,
-          thumbLarge: album.images[album.thumbnailIndex].large,
-          name: album.name
-        };
-      });
+    .map(album => {
+      return {
+        thumbSmall: album.images.length > 0 ? album.images[album.thumbnailIndex].small : null,
+        thumbMedium: album.images.length > 0 ? album.images[album.thumbnailIndex].medium : null,
+        thumbLarge: album.images.length > 0 ? album.images[album.thumbnailIndex].large : null,
+        name: album.name
+      };
+    });
 }
 
 module.exports = {
