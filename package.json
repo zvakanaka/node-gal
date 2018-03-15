@@ -4,6 +4,7 @@
   "description": "photo gallery api",
   "main": "api.js",
   "dependencies": {
+    "dotenv": "^5.0.1",
     "restify": "^5.0.1",
     "restify-plugins": "^1.6.0"
   },

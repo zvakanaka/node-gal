@@ -1,5 +1,6 @@
 const restify = require('restify');
 const plugins = require('restify-plugins');
+require('dotenv').config();
 //const photoModel = require('./model');
 const photoModel = require('./demo');
 const DIR_WITH_ALBUMS = process.env.DIR_WITH_ALBUMS || '../photo' || '.';
