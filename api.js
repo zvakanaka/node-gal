@@ -2,8 +2,7 @@ const restify = require('restify');
 const plugins = require('restify-plugins');
 require('dotenv').config();
 const logger = require('morgan');
-const photoModel = require('./model');
-//const photoModel = require('./demo');
+const photoModel = process.env.DEMO ? require('./demo') : require('./model');
 const BASE_DIR = process.env.BASE_DIR || '../photo' || '.';
 const server = restify.createServer({
   name: 'node-gal-api',
