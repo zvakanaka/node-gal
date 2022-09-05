@@ -31,14 +31,14 @@ function getAlbumByName(name='', fileExtensions=['jpg']) {
   let mediums = getFilesInDirectory(BASE_DIR, `${name}/.web`, fileExtensions);//TODO: make a medium size
   let larges = getFilesInDirectory(BASE_DIR, `${name}/.web`, fileExtensions);
   let originals = getFilesInDirectory(BASE_DIR, `${name}`, fileExtensions);
-  let images = originals
+  let images = Array.isArray(originals) ? originals
     .map(file => {
       return {
         small: smalls.length > 0 ? `${URL}/${name}/.thumb/${smalls.filter(item => item === file)}` : `${URL}/${name}/${file}`,
         medium: mediums.length > 0 ? `${URL}/${name}/.web/${mediums.filter(item => item === file)}` : `${URL}/${name}/${file}`,
         large: larges.length > 0 ? `${URL}/${name}/.web/${larges.filter(item => item === file)}` : `${URL}/${name}/${file}`
       };
-    });
+    }) : [];
   let thumbnailIndex = 0;//TODO: get a set thumbnail
   let album = { name: name, thumbnailIndex: thumbnailIndex, images: images };
   return album;
